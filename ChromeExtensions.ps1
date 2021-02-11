@@ -6,8 +6,8 @@ Else
 {
 
 
-	# Function to collect Chrome extensions
-	Function Get-ChromeExtension 
+    # Function to collect Chrome extensions
+    Function Get-ChromeExtension 
     {
         # Set up array for output
         $Chrome_Extensions = @()
@@ -134,11 +134,11 @@ Else
             # Continue to new user if Chrome not found
             Else 
             { 
-                continue 
+                Continue 
             }
         }
 
-        # Format data in table and print output
+        # Format data in table, remove duplicates, and print output
         $Extensions = $Chrome_Extensions | Sort-Object Name | Select-Object Name, Version -Unique
 
         If ( $Extensions.Count -gt 0 )
@@ -149,20 +149,20 @@ Else
         }
         Else 
         {
-		    Write-Host "TSE-Error: No chrome extensions present."
-	    }
-	}
+            Write-Host "TSE-Error: No chrome extensions present."
+        }
+    }
 
 
-	# Check to ensure that chrome is installed, call function if it is
-	$ChromeInstall64 = "C:\Program Files\Google\Chrome"
-	$ChromeInstall86 = "C:\Program Files (x86)\Google\Chrome"
-	If( ( Test-Path -Path $ChromeInstall64 ) -or ( Test-Path -Path $ChromeInstall86 ) )
+    # Check to ensure that chrome is installed, call function if it is
+    $ChromeInstall64 = "C:\Program Files\Google\Chrome"
+    $ChromeInstall86 = "C:\Program Files (x86)\Google\Chrome"
+    If( ( Test-Path -Path $ChromeInstall64 ) -or ( Test-Path -Path $ChromeInstall86 ) )
     {
         Get-ChromeExtension
-	}
-	Else
-	{
-		Write-Host "TSE-Error: Chrome is not installed."
-	}
+    }
+    Else
+    {
+        Write-Host "TSE-Error: Chrome is not installed."
+    }
 }
