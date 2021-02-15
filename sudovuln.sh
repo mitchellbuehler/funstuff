@@ -1,8 +1,8 @@
 #!/bin/sh
 ##
-## Script Name: installed_applications.sh
-## Purpose: To query the list of installed applications on
-##          a Linux system.
+## Script Name: sudo_vulnerability.sh
+## Purpose: To determnine whether or not a Linux system
+##          is vulnerable to CVE-2021-3156
 ##
 
 #@INCLUDE=utils/os/linux_package_manager.sh
@@ -285,6 +285,3 @@ if [ "CentOS 7" = "$OS_GENERATION" ]; then
 fi
 	
 #implement additional logic here for other distributions, based on the applicable fix version for each OS
-
-
-
